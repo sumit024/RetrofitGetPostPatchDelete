@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5sp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:id="@+id/et_name_search"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="71dp"
+            android:hint="@string/et_hint"
+            android:inputType="textMultiLine" />
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10sp"
+            />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchLayout"
+        android:layout_margin="15sp"
+        android:id="@+id/users_rv"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_baseline_add_24"
+        android:backgroundTint="@color/fab_color"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20sp"
+        android:layout_marginEnd="10sp"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>
