@@ -23,11 +23,11 @@ interface RetrofitService {
 
     @POST("users")
     @Headers("Accept:application/json", "Content-Type:application/json", "Authorization: Bearer ACCESS-TOKEN\" -XPOST ")
-    fun createUser(@Body params:UserModel):Call<UserResponse>
+    fun createUser(@Body params:User):Call<UserResponse>
 
     @PATCH("users/{user_id}")
     @Headers("Accept:application/json", "Content-Type:application/json", "Authorization: Bearer ACCESS-TOKEN\" -XPOST ")
-    fun updateUser(@Path("user_id") user_id:String,@Body params:UserModel):Call<UserResponse>
+    fun updateUser(@Path("user_id") user_id:String,@Body params:User):Call<UserResponse>
 
     @DELETE("users/{user_id}")
     @Headers("Accept:application/json", "Content-Type:application/json", "Authorization: Bearer ACCESS-TOKEN\" -XPOST ")

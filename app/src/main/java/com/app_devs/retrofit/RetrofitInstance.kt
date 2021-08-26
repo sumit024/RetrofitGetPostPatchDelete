@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitInstance {
     companion object{
-        private const val baseUrl="https://gorest.co.in/public/v1/"
+        val baseUrl="https://gorest.co.in/public-api/"
         fun getRetrofitInstance():Retrofit
         {
             val logging=HttpLoggingInterceptor()
