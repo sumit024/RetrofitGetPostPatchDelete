@@ -17,7 +17,7 @@ class MainActivityViewModel:ViewModel() {
 
     fun getUsersList() {
 
-        val retroInstance = RetrofitInstance.getRetrofitInstance().create(RetrofitService::class.java)
+        val retroInstance:RetrofitService = RetrofitInstance.getRetrofitInstance().create(RetrofitService::class.java)
         val call = retroInstance.getUsersList()
         call.enqueue(object : retrofit2.Callback<UserList>{
             override fun onFailure(call: Call<UserList>, t: Throwable) {
@@ -37,7 +37,7 @@ class MainActivityViewModel:ViewModel() {
     fun searchUser(searchText: String) {
 
         val retroInstance = RetrofitInstance.getRetrofitInstance().create(RetrofitService::class.java)
-        val call = retroInstance.searchUser(searchText)
+        val call = retroInstance.searchUsers(searchText)
         call.enqueue(object : retrofit2.Callback<UserList>{
             override fun onFailure(call: Call<UserList>, t: Throwable) {
                 recyclerListData.postValue(null)

@@ -6,25 +6,38 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_row.view.*
 
-class UserAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var userList= mutableListOf<User>()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_row,parent,false))
-    }
+class UserAdapter(val clickListener: OnItemClickListener): RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val model=userList[position]
-        if(holder is MyViewHolder)
-        {
-            holder.itemView.tv_name.text=model.name
-            holder.itemView.tv_email.text=model.email
-            holder.itemView.tv_status.text=model.status
-        }
+    var userList = mutableListOf<User>()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.MyViewHolder {
+        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.item_row, parent, false)
+        return MyViewHolder(inflater)
     }
 
     override fun getItemCount(): Int {
         return userList.size
     }
-    class MyViewHolder(view:View):RecyclerView.ViewHolder(view)
 
+    override fun onBindViewHolder(holder: UserAdapter.MyViewHolder, position: Int) {
+        holder.bind(userList[position])
+        holder.itemView.setOnClickListener {
+            clickListener.onItemEditClick(userList[position])
+        }
+    }
+
+    class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        val textViewName = view.tv_name
+        val textViewEmail = view.tv_email
+        val textViewStats = view.tv_status
+
+        fun bind(data : User) {
+            textViewName.text = data.name
+            textViewEmail.text = data.email
+            textViewStats.text = data.status
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onItemEditClick(user : User)
+    }
 }
