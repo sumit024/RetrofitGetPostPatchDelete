@@ -1,12 +1,15 @@
-package com.app_devs.retrofit
+package com.app_devs.retrofit.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.app_devs.retrofit.viewmodels.CreateNewUserViewModel
+import com.app_devs.retrofit.R
+import com.app_devs.retrofit.User
+import com.app_devs.retrofit.UserResponse
 import kotlinx.android.synthetic.main.activity_create_new_user.*
 import kotlinx.android.synthetic.main.activity_main.*
 

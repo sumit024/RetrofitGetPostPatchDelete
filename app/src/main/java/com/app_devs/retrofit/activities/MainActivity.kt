@@ -1,15 +1,17 @@
-package com.app_devs.retrofit
+package com.app_devs.retrofit.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app_devs.retrofit.*
+import com.app_devs.retrofit.adapter.UserAdapter
+import com.app_devs.retrofit.viewmodels.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), UserAdapter.OnItemClickListener {
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity(), UserAdapter.OnItemClickListener {
         }
     }
 
-    fun initViewModel() {
+    private fun initViewModel() {
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getUserListObservable().observe(this, Observer<UserList> {
             if(it == null) {

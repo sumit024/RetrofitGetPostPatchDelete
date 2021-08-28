@@ -1,5 +1,8 @@
-package com.app_devs.retrofit
+package com.app_devs.retrofit.retro
 
+import com.app_devs.retrofit.User
+import com.app_devs.retrofit.UserList
+import com.app_devs.retrofit.UserResponse
 import retrofit2.Call
 import retrofit2.http.*
 
